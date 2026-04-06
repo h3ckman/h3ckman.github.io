@@ -34,6 +34,7 @@ export default {
     },
     footer: {
       createdWith: "Készítve ezzel:",
+      createdBy: "Készítette:",
     },
     graph: {
       title: "Grafikonnézet",
