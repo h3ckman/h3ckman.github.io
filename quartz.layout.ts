@@ -22,6 +22,7 @@ const resumeSidebar = [
   Component.ProfilePicture(),
   Component.PageTitle(),
   Component.MobileOnly(Component.Spacer()),
+  Component.Search(),
   Component.Darkmode(),
   Component.Explorer({
     title: "Sections",

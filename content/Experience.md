@@ -5,7 +5,9 @@ cssclasses:
   - resume-section
 enableToc: true
 tags:
-  - experience
+  - copeland
+  - mile-two
+  - speedway
 ---
 
 ### Software Engineering Manager
