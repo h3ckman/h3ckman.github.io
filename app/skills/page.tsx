@@ -92,7 +92,7 @@ const skillGroups = [
 export default function SkillsPage() {
   return (
     <div className="mx-auto max-w-3xl space-y-8">
-      <div className="space-y-2">
+      <div className="animate-in fade-in slide-in-from-bottom-4 fill-mode-backwards animation-duration-500 space-y-2">
         <h1 className="text-3xl font-bold tracking-tight">Skills</h1>
         <p className="text-muted-foreground">
           Technical skills and competencies
@@ -100,8 +100,12 @@ export default function SkillsPage() {
       </div>
       <Separator />
       <div className="grid gap-6 sm:grid-cols-2">
-        {skillGroups.map((group) => (
-          <Card key={group.title}>
+        {skillGroups.map((group, i) => (
+          <Card
+            key={group.title}
+            className="animate-in fade-in slide-in-from-bottom-4 fill-mode-backwards animation-duration-500"
+            style={{ animationDelay: `${(i + 1) * 75}ms` }}
+          >
             <CardHeader>
               <CardTitle className="text-base">{group.title}</CardTitle>
             </CardHeader>

@@ -9,6 +9,9 @@ import {
   SidebarTrigger,
 } from "@/components/ui/sidebar";
 import { Separator } from "@/components/ui/separator";
+import { TooltipProvider } from "@/components/ui/tooltip";
+import { BreadcrumbNav } from "@/components/breadcrumb-nav";
+import { ThemeToggle } from "@/components/theme-toggle";
 
 const geist = Geist({ subsets: ["latin"], variable: "--font-sans" });
 
@@ -18,16 +21,16 @@ export const metadata: Metadata = {
 };
 
 const navMain = [
-  {
-    title: "Section",
-    url: "/",
-    items: [
-      { title: "About", url: "/" },
-      { title: "Experience", url: "/experience" },
-      { title: "Projects", url: "/projects" },
-      { title: "Skills", url: "/skills" },
-    ],
-  },
+  { title: "About", url: "/", icon: "user" },
+  { title: "Experience", url: "/experience", icon: "briefcase" },
+  { title: "Projects", url: "/projects", icon: "folder-open" },
+  { title: "Skills", url: "/skills", icon: "wrench" },
+];
+
+const socialLinks = [
+  { label: "GitHub", url: "#", icon: "github" },
+  { label: "LinkedIn", url: "#", icon: "linkedin" },
+  { label: "Email", url: "#", icon: "mail" },
 ];
 
 export default function RootLayout({
@@ -36,7 +39,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={cn("font-sans", geist.variable)}>
+    <html lang="en" className={cn("font-sans", geist.variable)} suppressHydrationWarning>
+      <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(function(){try{var t=localStorage.getItem("theme");if(t==="dark"||(!t&&matchMedia("(prefers-color-scheme:dark)").matches))document.documentElement.classList.add("dark")}catch(e){}})()`,
+          }}
+        />
+      </head>
       <body>
         <SidebarProvider
           style={
@@ -45,19 +55,25 @@ export default function RootLayout({
             } as React.CSSProperties
           }
         >
-          <AppSidebar navMain={navMain} />
-          <SidebarInset>
-            <header className="flex h-16 shrink-0 items-center gap-2 px-4">
-              <SidebarTrigger className="-ml-1" />
-              <Separator
-                orientation="vertical"
-                className="mr-2 data-vertical:h-4 data-vertical:self-auto"
-              />
-            </header>
-            <div className="flex flex-1 flex-col gap-4 p-4 pt-0">
-              {children}
-            </div>
-          </SidebarInset>
+          <TooltipProvider>
+            <AppSidebar navMain={navMain} socialLinks={socialLinks} />
+            <SidebarInset>
+              <header className="flex h-16 shrink-0 items-center gap-2 px-4">
+                <SidebarTrigger className="-ml-1" />
+                <Separator
+                  orientation="vertical"
+                  className="mr-2 data-vertical:h-4 data-vertical:self-auto"
+                />
+                <BreadcrumbNav />
+                <div className="ml-auto">
+                  <ThemeToggle />
+                </div>
+              </header>
+              <div className="flex flex-1 flex-col gap-4 p-4 pt-0">
+                {children}
+              </div>
+            </SidebarInset>
+          </TooltipProvider>
         </SidebarProvider>
       </body>
     </html>

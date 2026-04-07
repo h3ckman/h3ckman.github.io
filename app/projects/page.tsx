@@ -31,12 +31,45 @@ const projects = [
       "Delivered across the full product lifecycle — from feature development and release management to App Store deployment, coordinating with firmware and cloud service teams to ensure reliable end-to-end thermostat connectivity across single-stage, multi-stage, and heat pump systems",
     ],
   },
+  {
+    title: "AI/ML Resource Manager",
+    description:
+      "A web-based tool built for data scientists to rapidly provision and manage compute resources on an on-premise Kubernetes cluster. The platform streamlined the ML workflow by giving researchers self-service access to GPU instances, Jupyter environments, and training pipelines — eliminating weeks of manual infrastructure setup and enabling faster experimentation cycles.",
+    tech: ["Node.js", "React", "PostgreSQL", "Kubernetes", "Docker"],
+    highlights: [
+      "Built the full-stack application enabling data scientists to self-provision compute resources without DevOps intervention",
+      "Designed the Kubernetes integration layer for dynamic resource allocation, scaling, and lifecycle management of ML workloads",
+      "Worked in agile teams to rapidly prototype and iterate on solutions, incorporating client feedback throughout the development lifecycle",
+    ],
+  },
+  {
+    title: "DoorDash Delivery Integration",
+    description:
+      "Led the enterprise-wide integration of DoorDash's mobile delivery platform for Speedway's convenience store network. The project spanned multiple business systems and required coordinating across backoffice inventory management, data warehouse storage, and accounting system payment reconciliation to enable seamless on-demand delivery for customers.",
+    tech: ["REST APIs", "SQL", "Data Integration", "System Architecture"],
+    highlights: [
+      "Led the IT organization through the end-to-end integration, coordinating across multiple internal and external teams",
+      "Designed the data flow architecture connecting DoorDash's platform to Speedway's inventory, warehouse, and accounting systems",
+      "Managed cross-functional stakeholders to align business requirements with technical implementation across all integration points",
+    ],
+  },
+  {
+    title: "IoT Prototypes & Speedy Rewards",
+    description:
+      "A series of innovative IoT and customer-facing solutions developed as part of Speedway's Emerging Technologies team. Projects ranged from energy management and video analytics devices for store operations to the Speedy Rewards loyalty device — a customer-facing self-checkout terminal used across the convenience store chain.",
+    tech: ["WPF", "C#", ".NET", "IoT", "Visual Studio"],
+    highlights: [
+      "Prototyped various IoT devices for corporate and store environments spanning energy management, video analytics, and inventory management — one solution was submitted for a patent",
+      "Designed and implemented the Speedy Rewards customer-facing loyalty device as a self-checkout solution built with WPF",
+      "Spearheaded the field-management mobile application, which went on to win Dayton's Technology First award in 2018",
+    ],
+  },
 ];
 
 export default function ProjectsPage() {
   return (
     <div className="mx-auto max-w-3xl space-y-8">
-      <div className="space-y-2">
+      <div className="animate-in fade-in slide-in-from-bottom-4 fill-mode-backwards animation-duration-500 space-y-2">
         <h1 className="text-3xl font-bold tracking-tight">Projects</h1>
         <p className="text-muted-foreground">
           Notable projects and contributions
@@ -44,8 +77,12 @@ export default function ProjectsPage() {
       </div>
       <Separator />
       <div className="space-y-6">
-        {projects.map((project) => (
-          <Card key={project.title}>
+        {projects.map((project, i) => (
+          <Card
+            key={project.title}
+            className="animate-in fade-in slide-in-from-bottom-4 fill-mode-backwards animation-duration-500"
+            style={{ animationDelay: `${(i + 1) * 100}ms` }}
+          >
             <CardHeader>
               <CardTitle className="text-lg">{project.title}</CardTitle>
               <CardDescription className="text-sm leading-relaxed">

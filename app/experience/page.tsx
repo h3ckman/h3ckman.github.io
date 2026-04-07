@@ -75,37 +75,62 @@ const roles = [
 ];
 
 export default function ExperiencePage() {
+  let lastCompany = "";
+
   return (
     <div className="mx-auto max-w-3xl space-y-8">
-      <div className="space-y-2">
+      <div className="animate-in fade-in slide-in-from-bottom-4 fill-mode-backwards animation-duration-500 space-y-2">
         <h1 className="text-3xl font-bold tracking-tight">Experience</h1>
         <p className="text-muted-foreground">
           Professional work history and accomplishments
         </p>
       </div>
       <Separator />
-      <div className="space-y-6">
-        {roles.map((role) => (
-          <Card key={`${role.company}-${role.title}`}>
-            <CardHeader>
-              <div className="flex flex-wrap items-center justify-between gap-2">
-                <CardTitle className="text-lg">{role.title}</CardTitle>
-                <Badge variant="secondary">{role.period}</Badge>
+      <div className="relative space-y-6 pl-8">
+        <div className="absolute top-0 bottom-0 left-3 w-px bg-border" />
+        {roles.map((role, i) => {
+          const showCompany = role.company !== lastCompany;
+          lastCompany = role.company;
+          return (
+            <div key={`${role.company}-${role.title}`}>
+              {showCompany && (
+                <div
+                  className="relative z-10 animate-in fade-in fill-mode-backwards animation-duration-500 -ml-8 mb-3 text-sm font-semibold uppercase tracking-wider text-muted-foreground"
+                  style={{ animationDelay: `${i * 100}ms` }}
+                >
+                  {role.company}
+                </div>
+              )}
+              <div
+                className="animate-in fade-in slide-in-from-bottom-4 fill-mode-backwards animation-duration-500 relative"
+                style={{ animationDelay: `${i * 100 + 50}ms` }}
+              >
+                <div className="absolute -left-8 top-5 flex items-center justify-center">
+                  <div className="size-2.5 rounded-full border-2 border-primary bg-background" />
+                </div>
+                <Card>
+                  <CardHeader>
+                    <div className="flex flex-wrap items-center justify-between gap-2">
+                      <CardTitle className="text-lg">{role.title}</CardTitle>
+                      <Badge variant="secondary">{role.period}</Badge>
+                    </div>
+                    <CardDescription>{role.company}</CardDescription>
+                  </CardHeader>
+                  <CardContent>
+                    <ul className="space-y-2 text-sm text-foreground/80">
+                      {role.bullets.map((bullet, j) => (
+                        <li key={j} className="flex gap-2">
+                          <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-muted-foreground/50" />
+                          <span>{bullet}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </CardContent>
+                </Card>
               </div>
-              <CardDescription>{role.company}</CardDescription>
-            </CardHeader>
-            <CardContent>
-              <ul className="space-y-2 text-sm text-foreground/80">
-                {role.bullets.map((bullet, i) => (
-                  <li key={i} className="flex gap-2">
-                    <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-muted-foreground/50" />
-                    <span>{bullet}</span>
-                  </li>
-                ))}
-              </ul>
-            </CardContent>
-          </Card>
-        ))}
+            </div>
+          );
+        })}
       </div>
     </div>
   );
