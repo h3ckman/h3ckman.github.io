@@ -33,11 +33,17 @@
 // Profile picture responsive adjustments
 @media screen and (max-width: 800px) {
   .profile-picture {
-    margin-right: 1rem;
+    margin-right: 0.5rem;
     img {
-      width: 100px;
-      height: 100px;
+      width: 60px;
+      height: 60px;
     }
+  }
+  .page-title {
+    font-size: 1.8rem;
+  }
+  .explorer {
+    // width: 200px;
   }
 }
 
