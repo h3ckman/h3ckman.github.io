@@ -12,7 +12,7 @@ tags:
 
 ## Software Engineering Manager
 
-**Copeland LP** _(2024 – Present)_
+**Copeland** _(2024 – Present)_
 
 - Lead a team of 6 engineers building Copeland Connect+, an enterprise management platform that helps major retailers like Amazon, Walmart, and Target remotely monitor, manage, and optimize their multi-site HVACR operations in near real-time
 - Drive technical strategy and delivery for a product that sits at the intersection of software and hardware — Copeland uniquely owns the full ecosystem, from refrigeration and facility management components to the cloud-connected software layer providing data acquisition, analytics, and actionable insights
@@ -23,7 +23,7 @@ tags:
 
 ## Senior Software Engineer
 
-**Copeland LP** _(2022 – 2024)_
+**Copeland** _(2022 – 2024)_
 
 - Served as a native mobile engineer on the Sensi smart thermostat team, supporting the development, release, and deployment of the Sensi Touch 2 — an ENERGY STAR-certified smart thermostat used by millions of homeowners for remote climate control, energy optimization, and smart home integration
 - Made key architectural and UX decisions that directly impacted the installation flow and daily interactions for the entire Sensi user base, ensuring a seamless experience across device setup, scheduling, and system monitoring
