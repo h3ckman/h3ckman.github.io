@@ -17,6 +17,19 @@ export const metadata: Metadata = {
   description: "Software Engineering Manager at Copeland",
 };
 
+const navMain = [
+  {
+    title: "Section",
+    url: "/",
+    items: [
+      { title: "About", url: "/" },
+      { title: "Experience", url: "/experience" },
+      { title: "Projects", url: "/projects" },
+      { title: "Skills", url: "/skills" },
+    ],
+  },
+];
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -32,7 +45,7 @@ export default function RootLayout({
             } as React.CSSProperties
           }
         >
-          <AppSidebar />
+          <AppSidebar navMain={navMain} />
           <SidebarInset>
             <header className="flex h-16 shrink-0 items-center gap-2 px-4">
               <SidebarTrigger className="-ml-1" />

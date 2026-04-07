@@ -16,33 +16,17 @@ import {
 } from "@/components/ui/sidebar";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 
-const data = {
-  navMain: [
-    {
-      title: "Section",
-      url: "/",
-      items: [
-        {
-          title: "About",
-          url: "/",
-        },
-        {
-          title: "Experience",
-          url: "/experience",
-        },
-        {
-          title: "Projects",
-          url: "/projects",
-        },
-        {
-          title: "Skills",
-          url: "/skills",
-        },
-      ],
-    },
-  ],
+export type NavItem = {
+  title: string;
+  url: string;
+  items?: { title: string; url: string }[];
 };
-export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
+
+type AppSidebarProps = React.ComponentProps<typeof Sidebar> & {
+  navMain: NavItem[];
+};
+
+export function AppSidebar({ navMain, ...props }: AppSidebarProps) {
   return (
     <Sidebar variant="floating" {...props}>
       <SidebarHeader className="items-center gap-3 pt-8">
@@ -51,7 +35,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
           <AvatarFallback className="text-3xl">AH</AvatarFallback>
         </Avatar>
         <div className="flex flex-col items-center gap-0.5 leading-none">
-          <span className="text-2xl font-bold">Alex Heck</span>
+          <span className="text-3xl font-bold">Alex Heck</span>
           <span className="text-sm text-muted-foreground">
             Software Engineering Manager
           </span>
@@ -60,7 +44,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
       <SidebarContent>
         <SidebarGroup>
           <SidebarMenu className="gap-2">
-            {data.navMain.map((item) => (
+            {navMain.map((item) => (
               <SidebarMenuItem key={item.title}>
                 <SidebarMenuButton
                   render={<a href={item.url} className="font-medium" />}
