@@ -1,18 +1,27 @@
-# Quartz v4
+# Deploy Next.js to GitHub Pages
 
-> “[One] who works with the door open gets all kinds of interruptions, but [they] also occasionally gets clues as to what the world is and what might be important.” — Richard Hamming
+This is a Next.js template which can be deployed to GitHub Pages as a static site.
 
-Quartz is a set of tools that helps you publish your [digital garden](https://jzhao.xyz/posts/networked-thought) and notes as a website for free.
-Quartz v4 features a from-the-ground rewrite focusing on end-user extensibility and ease-of-use.
+## Deploying to GitHub Pages
 
-🔗 Read the documentation and get started: https://quartz.jzhao.xyz/
+1.  Create a new public GitHub repository
+2.  Push the starter code to the `main` branch
+3.  On GitHub, go to **Settings** > **Pages** > **Source**, and choose **GitHub Actions** as the source
+4.  Make a commit and push it to see the changes on GitHub Pages
 
-[Join the Discord Community](https://discord.gg/cRFFHYye7t)
+Congratulations! You should have a URL like:
 
-## Sponsors
+```bash
+https://<github-user-name>.github.io/<github-project-name>/
+```
 
-<p align="center">
-  <a href="https://github.com/sponsors/jackyzha0">
-    <img src="https://cdn.jsdelivr.net/gh/jackyzha0/jackyzha0/sponsorkit/sponsors.svg" />
-  </a>
-</p>
+For more information, see our [deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying/static-exports).
+
+## Learn More
+
+To learn more about Next.js, take a look at the following resources:
+
+- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+
+You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!

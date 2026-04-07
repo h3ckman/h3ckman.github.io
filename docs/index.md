@@ -1,46 +1,15 @@
 ---
-title: Welcome to Quartz 4
+title: About Me
+description: "Software engineer resume and portfolio"
+cssclasses:
+  - resume-landing
+enableToc: false
 ---
 
-Quartz is a fast, batteries-included static-site generator that transforms Markdown content into fully functional websites. Thousands of students, developers, and teachers are [[showcase|already using Quartz]] to publish personal notes, websites, and [digital gardens](https://jzhao.xyz/posts/networked-thought) to the web.
+I'm a Software Engineering Manager at Copeland LP with over a decade of experience building software and leading engineering teams. Throughout my career, I've had the privilege of working with talented people across a handful of companies, and I've consistently gravitated toward environments that reward strong collaboration, creative problem-solving, and a genuine appetite for learning.
 
-## 🪴 Get Started
+Whether it's architecting a new system, mentoring engineers, or diving into a tricky debugging session, I find the most fulfillment in work that pushes me to grow alongside the people around me. I believe the best software comes from teams that communicate well, challenge each other's ideas, and stay curious.
 
-Quartz requires **at least [Node](https://nodejs.org/) v20** and `npm` v9.3.1 to function correctly. Ensure you have this installed on your machine before continuing.
+This site is a living snapshot of my professional journey — feel free to explore the sections below or use the sidebar to navigate. I had a lot of fun putting this together, and I hope you enjoy browsing it as much as I enjoyed building it.
 
-Then, in your terminal of choice, enter the following commands line by line:
-
-```shell
-git clone https://github.com/jackyzha0/quartz.git
-cd quartz
-npm i
-npx quartz create
-```
-
-This will guide you through initializing your Quartz with content. Once you've done so, see how to:
-
-1. [[authoring content|Writing content]] in Quartz
-2. [[configuration|Configure]] Quartz's behaviour
-3. Change Quartz's [[layout]]
-4. [[build|Build and preview]] Quartz
-5. Sync your changes with [[setting up your GitHub repository|GitHub]]
-6. [[hosting|Host]] Quartz online
-
-If you prefer instructions in a video format you can try following Nicole van der Hoeven's
-[video guide on how to set up Quartz!](https://www.youtube.com/watch?v=6s6DT1yN4dw&t=227s)
-
-## 🔧 Features
-
-- [[Obsidian compatibility]], [[full-text search]], [[graph view]], note transclusion, [[wikilinks]], [[backlinks]], [[features/Latex|Latex]], [[syntax highlighting]], [[popover previews]], [[Docker Support]], [[i18n|internationalization]], [[comments]] and [many more](./features) right out of the box
-- Hot-reload for both configuration and content
-- Simple JSX layouts and [[creating components|page components]]
-- [[SPA Routing|Ridiculously fast page loads]] and tiny bundle sizes
-- Fully-customizable parsing, filtering, and page generation through [[making plugins|plugins]]
-
-For a comprehensive list of features, visit the [features page](/features). You can read more about the _why_ behind these features on the [[philosophy]] page and a technical overview on the [[architecture]] page.
-
-### 🚧 Troubleshooting + Updating
-
-Having trouble with Quartz? Try searching for your issue using the search feature. If you haven't already, [[upgrading|upgrade]] to the newest version of Quartz to see if this fixes your issue.
-
-If you're still having trouble, feel free to [submit an issue](https://github.com/jackyzha0/quartz/issues) if you feel you found a bug or ask for help in our [Discord Community](https://discord.gg/cRFFHYye7t).
+While I am not actively seeking new opportunities at the moment, I'm always open to connecting with fellow engineers, discussing potential collaborations, or just chatting about all things software. If you'd like to reach out, feel free to connect with me through any of the channels listed at the bottom of this page.
