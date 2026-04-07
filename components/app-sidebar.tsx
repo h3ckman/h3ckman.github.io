@@ -1,6 +1,6 @@
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
 import {
   Sidebar,
@@ -13,8 +13,8 @@ import {
   SidebarMenuSub,
   SidebarMenuSubButton,
   SidebarMenuSubItem,
-} from "@/components/ui/sidebar"
-import { GalleryVerticalEndIcon } from "lucide-react"
+} from "@/components/ui/sidebar";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 
 const data = {
   navMain: [
@@ -41,24 +41,21 @@ const data = {
       ],
     },
   ],
-}
+};
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   return (
     <Sidebar variant="floating" {...props}>
-      <SidebarHeader>
-        <SidebarMenu>
-          <SidebarMenuItem>
-            <SidebarMenuButton size="lg" render={<a href="#" />}>
-              <div className="flex aspect-square size-8 items-center justify-center rounded-lg bg-sidebar-primary text-sidebar-primary-foreground">
-                <GalleryVerticalEndIcon className="size-4" />
-              </div>
-              <div className="flex flex-col gap-0.5 leading-none">
-                <span className="font-medium">Documentation</span>
-                <span className="">v1.0.0</span>
-              </div>
-            </SidebarMenuButton>
-          </SidebarMenuItem>
-        </SidebarMenu>
+      <SidebarHeader className="items-center gap-3 pt-8">
+        <Avatar className="size-40">
+          <AvatarImage src="/profile.jpg" alt="Alex Heck" />
+          <AvatarFallback className="text-3xl">AH</AvatarFallback>
+        </Avatar>
+        <div className="flex flex-col items-center gap-0.5 leading-none">
+          <span className="text-2xl font-bold">Alex Heck</span>
+          <span className="text-sm text-muted-foreground">
+            Software Engineering Manager
+          </span>
+        </div>
       </SidebarHeader>
       <SidebarContent>
         <SidebarGroup>
@@ -74,9 +71,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
                   <SidebarMenuSub className="ml-0 border-l-0 px-1.5">
                     {item.items.map((item) => (
                       <SidebarMenuSubItem key={item.title}>
-                        <SidebarMenuSubButton
-                          render={<a href={item.url} />}
-                        >
+                        <SidebarMenuSubButton render={<a href={item.url} />}>
                           {item.title}
                         </SidebarMenuSubButton>
                       </SidebarMenuSubItem>
@@ -89,5 +84,5 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
         </SidebarGroup>
       </SidebarContent>
     </Sidebar>
-  )
+  );
 }
