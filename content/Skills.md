@@ -17,7 +17,7 @@ tags:
   - kubernetes
 ---
 
-### Languages
+## Languages
 
 - TypeScript / JavaScript
 - Kotlin
@@ -27,7 +27,7 @@ tags:
 - SQL
 - HTML / CSS / SCSS / Tailwind CSS
 
-### Frameworks & Libraries
+## Frameworks & Libraries
 
 - React, Next.js, Node.js
 - shadcn/ui, Material UI, Radix UI
@@ -41,13 +41,13 @@ tags:
 - Storybook
 - Redux, React Query
 
-### Cloud & Infrastructure
+## Cloud & Infrastructure
 
 - Microsoft Azure (App Services, Functions, Blob Storage, Service Bus, Key Vault, Application Insights)
 - Docker, Kubernetes
 - Nginx, Linux
 
-### DevOps & CI/CD
+## DevOps & CI/CD
 
 - Azure DevOps (Pipelines, Boards, Repos)
 - Jenkins
@@ -55,21 +55,21 @@ tags:
 - Git, GitFlow
 - Automated testing & deployment workflows
 
-### Data & APIs
+## Data & APIs
 
 - MSSQL, PostgreSQL, mySQL, Redis
 - REST APIs, GraphQL
 - Entity Framework, Prisma, TypeORM
 - Data modeling, database design, and query optimization
 
-### Tools & Platforms
+## Tools & Platforms
 
 - Visual Studio / VS Code
 - Xcode, Android Studio
 - Jira, Confluence
 - Figma
 
-### Soft Skills
+## Soft Skills
 
 - Engineering management & mentorship
 - Technical leadership & architecture

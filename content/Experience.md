@@ -10,7 +10,7 @@ tags:
   - speedway
 ---
 
-### Software Engineering Manager
+## Software Engineering Manager
 
 **Copeland LP** _(2024 – Present)_
 
@@ -21,7 +21,7 @@ tags:
 - Partner with product management and stakeholders to define roadmaps, prioritize features, and align engineering efforts with business objectives
 - Mentor and grow engineers across multiple levels, supporting career development and building a high-performing team
 
-### Senior Software Engineer
+## Senior Software Engineer
 
 **Copeland LP** _(2022 – 2024)_
 
@@ -31,7 +31,7 @@ tags:
 - Led technical design discussions and code reviews, establishing best practices and coding standards across both product teams
 - Collaborated cross-functionally with product, QA, and firmware teams to coordinate releases spanning mobile apps, thermostat firmware, and cloud services
 
-### Software Engineer
+## Software Engineer
 
 **Mile Two** _(2020 – 2022)_
 
@@ -39,14 +39,14 @@ tags:
 - Built an AI/ML web tool enabling data scientists to rapidly provision and manage compute resources on an on-premise Kubernetes cluster
 - Worked in agile teams to rapidly prototype and iterate on solutions, incorporating client feedback throughout the development lifecycle
 
-### Solutions Architect
+## Solutions Architect
 
 **Speedway** _(2020)_
 
 - Provided technical leadership and strategy while tailoring software processes to meet specific business needs
 - Led the IT organization in integrating the DoorDash mobile delivery solution, coordinating across multiple integration points including backoffice inventory management, data warehouse storage, and accounting system payment reconciliation
 
-### Full Stack Engineer
+## Full Stack Engineer
 
 **Speedway** _(2017 – 2020)_
 
@@ -54,7 +54,7 @@ tags:
 - Prototyped various IoT devices for corporate and store environments spanning energy management, video analytics, and inventory management — one solution gained company-wide recognition and was submitted for a patent
 - Worked on the Speedy Rewards customer-facing loyalty device, designing and implementing a self-checkout solution built with WPF in Visual Studio
 
-### iOS Developer
+## iOS Developer
 
 **Speedway** _(2015 – 2017)_
 

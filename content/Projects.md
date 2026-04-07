@@ -11,7 +11,7 @@ tags:
   - personal
 ---
 
-### Connect+
+## Connect+
 
 Copeland's Connect+ is an enterprise management platform that helps major retailers like Amazon, Walmart, and Target remotely monitor, manage, and optimize their multi-site HVACR operations in near real-time.
 
@@ -20,7 +20,7 @@ Copeland's Connect+ is an enterprise management platform that helps major retail
 - **Improved operational efficiency and data-driven decision-making** for major retailers
 -
 
-### Sensi Smart Thermostat
+## Sensi Smart Thermostat
 
 The Sensi Touch 2 is an ENERGY STAR-certified smart thermostat used by millions of homeowners for remote climate control, energy optimization, and smart home integration.
 
