@@ -7,7 +7,19 @@ import {
   ArrowRightIcon,
   FolderOpenIcon,
   WrenchIcon,
+  CalendarDaysIcon,
+  UsersIcon,
+  TrendingUpIcon,
+  CpuIcon,
 } from "lucide-react";
+import type { LucideIcon } from "lucide-react";
+
+const tags: { label: string; icon: LucideIcon }[] = [
+  { label: "10+ Years", icon: CalendarDaysIcon },
+  { label: "Engineering Leader", icon: UsersIcon },
+  { label: "Full Stack to Management", icon: TrendingUpIcon },
+  { label: "IoT & Enterprise", icon: CpuIcon },
+];
 
 const stats = [
   { value: "10+", label: "Years of Experience" },
@@ -66,18 +78,14 @@ export default function AboutPage() {
             <span className="font-semibold text-foreground">Copeland LP</span>
           </p>
           <div className="flex flex-wrap gap-2 pt-1">
-            {[
-              "10+ Years",
-              "Engineering Leader",
-              "Full Stack to Management",
-              "IoT & Enterprise",
-            ].map((label) => (
+            {tags.map((tag) => (
               <Badge
-                key={label}
+                key={tag.label}
                 variant="outline"
-                className="border-accent/25 bg-accent/[0.06] px-3 py-1 text-xs font-medium"
+                className="gap-1.5 border-accent/25 bg-accent/[0.06] px-3 py-1 text-xs font-medium"
               >
-                {label}
+                <tag.icon className="size-3 text-accent" />
+                {tag.label}
               </Badge>
             ))}
           </div>

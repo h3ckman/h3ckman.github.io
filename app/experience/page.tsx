@@ -131,13 +131,13 @@ export default function ExperiencePage() {
                 style={{ animationDelay: `${companyIndex * 80}ms` }}
               >
                 <div
-                  className={`h-px flex-1 max-w-8 ${company.dotColor} opacity-30`}
+                  className={`h-px flex-1 max-w-8 ${company.dotColor} opacity-20`}
                 />
                 <span className="text-xs font-bold uppercase tracking-[0.2em]">
                   {company.name}
                 </span>
                 <div
-                  className={`h-px flex-1 ${company.dotColor} opacity-10`}
+                  className={`h-px flex-1 ${company.dotColor} opacity-20 mask-r-from-50%`}
                 />
               </div>
 
