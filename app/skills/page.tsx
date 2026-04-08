@@ -11,6 +11,7 @@ import {
   UsersIcon,
 } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
+import { AnimateOnScroll } from "@/components/animate-on-scroll";
 
 type SkillGroup = {
   title: string;
@@ -141,8 +142,8 @@ export default function SkillsPage() {
           Skills & Expertise
         </h1>
         <p className="max-w-lg text-muted-foreground">
-          A technical toolkit refined over a decade of building across
-          mobile, web, cloud, and IoT platforms.
+          A technical toolkit refined over a decade of building across mobile,
+          web, cloud, and IoT platforms.
         </p>
       </div>
 
@@ -153,40 +154,40 @@ export default function SkillsPage() {
         {featured.map((group, i) => {
           const Icon = group.icon;
           return (
-            <Card
-              key={group.title}
-              className={`animate-in fade-in slide-in-from-bottom-4 fill-mode-backwards duration-500 border-l-[3px] ${group.color} transition-shadow hover:shadow-md`}
-              style={{ animationDelay: `${(i + 1) * 80}ms` }}
-            >
-              <CardHeader>
-                <div className="flex items-center justify-between">
-                  <CardTitle className="flex items-center gap-2.5 font-heading text-base">
-                    <div
-                      className={`flex size-7 items-center justify-center rounded-md ${group.iconBg}`}
-                    >
-                      <Icon className="size-3.5" />
-                    </div>
-                    {group.title}
-                  </CardTitle>
-                  <span className="text-xs font-medium text-muted-foreground">
-                    {group.skills.length} skills
-                  </span>
-                </div>
-              </CardHeader>
-              <CardContent>
-                <div className="flex flex-wrap gap-2">
-                  {group.skills.map((skill) => (
-                    <Badge
-                      key={skill}
-                      variant="secondary"
-                      className="px-2.5 py-0.5 text-xs font-medium transition-colors hover:bg-accent/10 hover:text-accent-foreground"
-                    >
-                      {skill}
-                    </Badge>
-                  ))}
-                </div>
-              </CardContent>
-            </Card>
+            <AnimateOnScroll key={group.title} delay={(i + 1) * 80}>
+              <Card
+                className={`border-l-[3px] ${group.color} transition-shadow hover:shadow-md`}
+              >
+                <CardHeader>
+                  <div className="flex items-center justify-between">
+                    <CardTitle className="flex items-center gap-2.5 font-heading text-base">
+                      <div
+                        className={`flex size-7 items-center justify-center rounded-md ${group.iconBg}`}
+                      >
+                        <Icon className="size-3.5" />
+                      </div>
+                      {group.title}
+                    </CardTitle>
+                    <span className="text-xs font-medium text-muted-foreground">
+                      {group.skills.length} skills
+                    </span>
+                  </div>
+                </CardHeader>
+                <CardContent>
+                  <div className="flex flex-wrap gap-2">
+                    {group.skills.map((skill) => (
+                      <Badge
+                        key={skill}
+                        variant="secondary"
+                        className="px-2.5 py-0.5 text-xs font-medium transition-all duration-150 hover:bg-accent/20 hover:scale-105 active:scale-95"
+                      >
+                        {skill}
+                      </Badge>
+                    ))}
+                  </div>
+                </CardContent>
+              </Card>
+            </AnimateOnScroll>
           );
         })}
       </div>
@@ -196,40 +197,40 @@ export default function SkillsPage() {
         {grid.map((group, i) => {
           const Icon = group.icon;
           return (
-            <Card
-              key={group.title}
-              className={`animate-in fade-in slide-in-from-bottom-4 fill-mode-backwards duration-500 border-l-[3px] ${group.color} transition-shadow hover:shadow-md`}
-              style={{ animationDelay: `${(i + 3) * 80}ms` }}
-            >
-              <CardHeader>
-                <div className="flex items-center justify-between">
-                  <CardTitle className="flex items-center gap-2.5 font-heading text-base">
-                    <div
-                      className={`flex size-7 items-center justify-center rounded-md ${group.iconBg}`}
-                    >
-                      <Icon className="size-3.5" />
-                    </div>
-                    {group.title}
-                  </CardTitle>
-                  <span className="text-xs font-medium text-muted-foreground">
-                    {group.skills.length}
-                  </span>
-                </div>
-              </CardHeader>
-              <CardContent>
-                <div className="flex flex-wrap gap-1.5">
-                  {group.skills.map((skill) => (
-                    <Badge
-                      key={skill}
-                      variant="secondary"
-                      className="px-2.5 py-0.5 text-xs font-medium transition-colors hover:bg-accent/10 hover:text-accent-foreground"
-                    >
-                      {skill}
-                    </Badge>
-                  ))}
-                </div>
-              </CardContent>
-            </Card>
+            <AnimateOnScroll key={group.title} delay={(i + 3) * 80}>
+              <Card
+                className={`border-l-[3px] ${group.color} transition-shadow hover:shadow-md`}
+              >
+                <CardHeader>
+                  <div className="flex items-center justify-between">
+                    <CardTitle className="flex items-center gap-2.5 font-heading text-base">
+                      <div
+                        className={`flex size-7 items-center justify-center rounded-md ${group.iconBg}`}
+                      >
+                        <Icon className="size-3.5" />
+                      </div>
+                      {group.title}
+                    </CardTitle>
+                    <span className="text-xs font-medium text-muted-foreground">
+                      {group.skills.length}
+                    </span>
+                  </div>
+                </CardHeader>
+                <CardContent>
+                  <div className="flex flex-wrap gap-1.5">
+                    {group.skills.map((skill) => (
+                      <Badge
+                        key={skill}
+                        variant="secondary"
+                        className="px-2.5 py-0.5 text-xs font-medium transition-all duration-150 hover:bg-accent/10 hover:text-accent-foreground hover:scale-105 active:scale-95"
+                      >
+                        {skill}
+                      </Badge>
+                    ))}
+                  </div>
+                </CardContent>
+              </Card>
+            </AnimateOnScroll>
           );
         })}
       </div>

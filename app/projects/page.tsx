@@ -8,6 +8,7 @@ import {
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
 import { SparklesIcon } from "lucide-react";
+import { AnimateOnScroll } from "@/components/animate-on-scroll";
 
 const projects = [
   {
@@ -90,9 +91,9 @@ function ProjectCard({
   index: number;
 }) {
   return (
+    <AnimateOnScroll delay={(index + 1) * 100}>
     <Card
-      className="animate-in fade-in slide-in-from-bottom-4 fill-mode-backwards duration-500 group overflow-hidden transition-shadow hover:shadow-lg hover:shadow-accent/[0.04]"
-      style={{ animationDelay: `${(index + 1) * 100}ms` }}
+      className={`group overflow-hidden transition-all hover:shadow-lg hover:shadow-accent/[0.04] hover:ring-1 hover:ring-accent/10 ${project.featured ? "card-shine" : ""}`}
     >
       {/* Gradient accent bar */}
       <div
@@ -136,6 +137,7 @@ function ProjectCard({
         </ul>
       </CardContent>
     </Card>
+    </AnimateOnScroll>
   );
 }
 

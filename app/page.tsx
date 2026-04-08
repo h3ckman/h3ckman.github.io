@@ -13,6 +13,7 @@ import {
   CpuIcon,
 } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
+import Link from "next/link";
 
 const tags: { label: string; icon: LucideIcon }[] = [
   { label: "10+ Years", icon: CalendarDaysIcon },
@@ -82,7 +83,7 @@ export default function AboutPage() {
               <Badge
                 key={tag.label}
                 variant="outline"
-                className="gap-1.5 border-accent/25 bg-accent/[0.06] px-3 py-1 text-xs font-medium"
+                className="gap-1.5 border-accent/25 bg-accent/[0.06] px-3 py-1 text-xs font-medium hover:bg-accent/20 hover:scale-105"
               >
                 <tag.icon className="size-3 text-accent" />
                 {tag.label}
@@ -101,7 +102,7 @@ export default function AboutPage() {
           {stats.map((stat) => (
             <div
               key={stat.label}
-              className="rounded-xl border border-border/60 bg-card/60 p-5 text-center backdrop-blur-sm transition-colors hover:border-accent/20"
+              className="rounded-xl ring-1 ring-border/40 bg-card/60 p-5 text-center backdrop-blur-sm transition-all duration-200 hover:ring-accent/25 hover:scale-[1.02] active:scale-[0.98]"
             >
               <div className="font-heading text-3xl font-bold text-accent">
                 {stat.value}
@@ -184,7 +185,7 @@ export default function AboutPage() {
       >
         <div className="grid gap-3 sm:grid-cols-3">
           {navCards.map((nav) => (
-            <a
+            <Link
               key={nav.title}
               href={nav.href}
               className="group flex items-center gap-4 rounded-xl border border-border/60 bg-card/40 p-4 transition-all duration-200 hover:border-accent/30 hover:bg-card hover:shadow-lg hover:shadow-accent/[0.04]"
@@ -198,8 +199,8 @@ export default function AboutPage() {
                 </div>
                 <div className="text-xs text-muted-foreground">{nav.desc}</div>
               </div>
-              <ArrowRightIcon className="size-4 shrink-0 text-muted-foreground/40 transition-all group-hover:translate-x-0.5 group-hover:text-accent" />
-            </a>
+              <ArrowRightIcon className="size-4 shrink-0 text-muted-foreground/40 transition-colors group-hover:text-accent group-hover:animate-[nudge-right_0.3s_ease_forwards]" />
+            </Link>
           ))}
         </div>
       </section>

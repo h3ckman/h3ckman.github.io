@@ -2,6 +2,7 @@
 
 import * as React from "react";
 import { usePathname } from "next/navigation";
+import Link from "next/link";
 import {
   BriefcaseIcon,
   FolderOpenIcon,
@@ -93,7 +94,7 @@ export function AppSidebar({
                 <SidebarMenuItem key={item.title}>
                   <SidebarMenuButton
                     isActive={isActive}
-                    render={<a href={item.url} />}
+                    render={<Link href={item.url} />}
                     className={
                       isActive
                         ? "bg-sidebar-primary/10 text-sidebar-primary font-semibold"

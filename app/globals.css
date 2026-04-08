@@ -4,6 +4,19 @@
 
 @custom-variant dark (&:is(.dark *));
 
+/* ── View Transitions (progressive enhancement) ── */
+@view-transition {
+  navigation: auto;
+}
+
+::view-transition-old(root) {
+  animation: 200ms ease-out both fade-out;
+}
+
+::view-transition-new(root) {
+  animation: 200ms ease-in both fade-in;
+}
+
 @theme inline {
   --font-heading: var(--font-display);
   --font-sans: var(--font-body);
@@ -157,12 +170,33 @@
   }
 }
 
+@keyframes nudge-right {
+  0% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(5px);
+  }
+  100% {
+    transform: translateX(3px);
+  }
+}
+
 @keyframes draw-line {
   from {
     height: 0;
   }
   to {
     height: 100%;
+  }
+}
+
+@keyframes card-shine {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
   }
 }
 
@@ -178,6 +212,44 @@
 
 .animate-pulse-subtle {
   animation: pulse-subtle 3s ease-in-out infinite;
+}
+
+/* Card shine sweep effect */
+.card-shine {
+  position: relative;
+}
+
+.card-shine::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(
+    105deg,
+    transparent 40%,
+    oklch(1 0 0 / 0.03) 45%,
+    oklch(1 0 0 / 0.06) 50%,
+    oklch(1 0 0 / 0.03) 55%,
+    transparent 60%
+  );
+  background-size: 200% 100%;
+  animation: card-shine 8s ease-in-out infinite;
+  border-radius: inherit;
+  pointer-events: none;
+}
+
+/* Scroll-triggered reveal */
+.reveal {
+  opacity: 0;
+  transform: translateY(16px);
+  transition:
+    opacity 0.6s ease,
+    transform 0.6s ease;
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 /* Dot grid pattern */

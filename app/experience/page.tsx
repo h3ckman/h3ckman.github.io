@@ -7,6 +7,7 @@ import {
 } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
+import { AnimateOnScroll } from "@/components/animate-on-scroll";
 
 const companies = [
   {
@@ -126,30 +127,30 @@ export default function ExperiencePage() {
           return (
             <div key={company.name} className="relative space-y-4">
               {/* Company Label */}
-              <div
-                className={`animate-in fade-in fill-mode-backwards duration-500 flex items-center gap-3 ${company.labelColor}`}
-                style={{ animationDelay: `${companyIndex * 80}ms` }}
-              >
+              <AnimateOnScroll delay={companyIndex * 80}>
                 <div
-                  className={`h-px flex-1 max-w-8 ${company.dotColor} opacity-20`}
-                />
-                <span className="text-xs font-bold uppercase tracking-[0.2em]">
-                  {company.name}
-                </span>
-                <div
-                  className={`h-px flex-1 ${company.dotColor} opacity-20 mask-r-from-50%`}
-                />
-              </div>
+                  className={`flex items-center gap-3 ${company.labelColor}`}
+                >
+                  <div
+                    className={`h-px flex-1 max-w-8 ${company.dotColor} opacity-20`}
+                  />
+                  <span className="text-xs font-bold uppercase tracking-[0.2em]">
+                    {company.name}
+                  </span>
+                  <div
+                    className={`h-px flex-1 ${company.dotColor} opacity-20 mask-r-from-50%`}
+                  />
+                </div>
+              </AnimateOnScroll>
 
               {/* Roles */}
               <div className="space-y-4 pl-4">
                 {company.roles.map((role) => {
                   const idx = animIndex++;
                   return (
-                    <div
+                    <AnimateOnScroll
                       key={`${company.name}-${role.title}`}
-                      className="animate-in fade-in slide-in-from-bottom-4 fill-mode-backwards duration-500 relative"
-                      style={{ animationDelay: `${idx * 80 + 40}ms` }}
+                      delay={idx * 80 + 40}
                     >
                       <Card
                         className={`border-l-[3px] ${company.borderColor} transition-shadow hover:shadow-md`}
@@ -162,7 +163,7 @@ export default function ExperiencePage() {
                             <div className="flex items-center gap-2">
                               {role.current && (
                                 <span className="relative flex size-2">
-                                  <span className="animate-ping absolute inline-flex size-full rounded-full bg-emerald-400 opacity-75" />
+                                  <span className="animate-ping absolute inline-flex size-full rounded-full bg-emerald-400 opacity-75 shadow-[0_0_6px_2px] shadow-emerald-400/30" />
                                   <span className="relative inline-flex size-2 rounded-full bg-emerald-500" />
                                 </span>
                               )}
@@ -193,7 +194,7 @@ export default function ExperiencePage() {
                           </ul>
                         </CardContent>
                       </Card>
-                    </div>
+                    </AnimateOnScroll>
                   );
                 })}
               </div>
