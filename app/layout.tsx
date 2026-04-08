@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Source_Serif_4, Manrope } from "next/font/google";
 import { cn } from "@/lib/utils";
 import "./globals.css";
-import { AppSidebar } from "@/components/app-sidebar";
+import { AppSidebar, NavItem, SocialLink } from "@/components/app-sidebar";
 import {
   SidebarInset,
   SidebarProvider,
@@ -30,14 +30,14 @@ export const metadata: Metadata = {
   description: "Software Engineering Manager at Copeland",
 };
 
-const navMain = [
+const navMain: NavItem[] = [
   { title: "About", url: "/", icon: "user" },
   { title: "Experience", url: "/experience", icon: "briefcase" },
   { title: "Projects", url: "/projects", icon: "folder-open" },
   { title: "Skills", url: "/skills", icon: "wrench" },
 ];
 
-const socialLinks = [
+const socialLinks: SocialLink[] = [
   { label: "GitHub", url: "#", icon: "github" },
   { label: "LinkedIn", url: "#", icon: "linkedin" },
   { label: "Email", url: "#", icon: "mail" },
