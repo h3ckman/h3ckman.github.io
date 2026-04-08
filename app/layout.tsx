@@ -38,9 +38,17 @@ const navMain: NavItem[] = [
 ];
 
 const socialLinks: SocialLink[] = [
-  { label: "GitHub", url: "#", icon: "github" },
-  { label: "LinkedIn", url: "#", icon: "linkedin" },
-  { label: "Email", url: "#", icon: "mail" },
+  { label: "GitHub", url: "https://github.com/h3ckman", icon: "github" },
+  {
+    label: "LinkedIn",
+    url: "https://www.linkedin.com/in/h3ckman",
+    icon: "linkedin",
+  },
+  {
+    label: "Email",
+    url: "mailto:thealexheck@gmail.com",
+    icon: "mail",
+  },
 ];
 
 export default function RootLayout({
