@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Source_Serif_4, Manrope } from "next/font/google";
 import { cn } from "@/lib/utils";
 import "./globals.css";
-import { AppSidebar, NavItem, SocialLink } from "@/components/app-sidebar";
+import { AppSidebar } from "@/components/app-sidebar";
 import {
   SidebarInset,
   SidebarProvider,
@@ -12,6 +12,7 @@ import { Separator } from "@/components/ui/separator";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { BreadcrumbNav } from "@/components/breadcrumb-nav";
 import { ThemeToggle } from "@/components/theme-toggle";
+import { NavItem, SocialLink } from "@/lib/types";
 
 const sourceSerif = Source_Serif_4({
   subsets: ["latin"],
