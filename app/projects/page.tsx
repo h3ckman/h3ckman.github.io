@@ -7,10 +7,14 @@ import {
 } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
+import { SparklesIcon } from "lucide-react";
 
 const projects = [
   {
     title: "Connect+",
+    featured: true,
+    accent: "from-amber-500/15 to-amber-500/0",
+    badgeColor: "bg-amber-500/10 text-amber-700 dark:text-amber-400 border-amber-500/20",
     description:
       "Copeland's enterprise management software, Connect+ seamlessly connects and actively manages multi-site food retail operations for supermarkets, convenience stores, and restaurants. Backed by Copeland's deep domain expertise in refrigeration, IoT, and facility management, the platform provides near real-time access to critical information — helping retailers like Amazon, Walmart, and Target immediately track, triage, and respond to issues across hundreds or thousands of sites from a centralized location.",
     tech: ["Java", "Spring Boot", "React", "Azure", "Kubernetes"],
@@ -22,19 +26,25 @@ const projects = [
   },
   {
     title: "Sensi Smart Thermostat",
+    featured: false,
+    accent: "from-emerald-500/15 to-emerald-500/0",
+    badgeColor: "bg-emerald-500/10 text-emerald-700 dark:text-emerald-400 border-emerald-500/20",
     description:
-      "Sensi is Copeland's consumer smart thermostat platform, backed by 100+ years of HVAC expertise. The flagship Sensi Touch 2 — the thinnest smart thermostat on the market — serves millions of homeowners with an ENERGY STAR-certified device that saves approximately 23% on HVAC energy costs. The platform features geofencing, flexible weekly scheduling, smart alerts for temperature and humidity anomalies, usage reports, and maintenance reminders. Compatible with room and outdoor sensors via Sensi Connect, and integrated with Alexa, Google Home, and Samsung SmartThings for voice control and automated routines.",
+      "Sensi is Copeland's consumer smart thermostat platform, backed by 100+ years of HVAC expertise. The flagship Sensi Touch 2 — the thinnest smart thermostat on the market — serves millions of homeowners with an ENERGY STAR-certified device that saves approximately 23% on HVAC energy costs.",
     tech: ["Swift", "Kotlin", "iOS", "Android"],
     highlights: [
-      "Served as a native mobile engineer on the Sensi Touch 2, contributing to the development, release, and deployment of the top-rated Sensi mobile app — the primary interface for step-by-step device installation, remote climate programming, geofencing, and energy usage analytics",
-      "Made key architectural and UX decisions that directly impacted the installation flow and daily interactions for millions of users — most installations complete in under 30 minutes with the app's guided setup, fitting a traditional thermostat footprint with no wall modifications required",
-      "Delivered across the full product lifecycle — from feature development and release management to App Store deployment, coordinating with firmware and cloud service teams to ensure reliable end-to-end thermostat connectivity across single-stage, multi-stage, and heat pump systems",
+      "Served as a native mobile engineer on the Sensi Touch 2, contributing to the development, release, and deployment of the top-rated Sensi mobile app",
+      "Made key architectural and UX decisions that directly impacted the installation flow and daily interactions for millions of users",
+      "Delivered across the full product lifecycle — from feature development and release management to App Store deployment",
     ],
   },
   {
     title: "AI/ML Resource Manager",
+    featured: false,
+    accent: "from-violet-500/15 to-violet-500/0",
+    badgeColor: "bg-violet-500/10 text-violet-700 dark:text-violet-400 border-violet-500/20",
     description:
-      "A web-based tool built for data scientists to rapidly provision and manage compute resources on an on-premise Kubernetes cluster. The platform streamlined the ML workflow by giving researchers self-service access to GPU instances, Jupyter environments, and training pipelines — eliminating weeks of manual infrastructure setup and enabling faster experimentation cycles.",
+      "A web-based tool built for data scientists to rapidly provision and manage compute resources on an on-premise Kubernetes cluster. The platform streamlined the ML workflow by giving researchers self-service access to GPU instances, Jupyter environments, and training pipelines.",
     tech: ["Node.js", "React", "PostgreSQL", "Kubernetes", "Docker"],
     highlights: [
       "Built the full-stack application enabling data scientists to self-provision compute resources without DevOps intervention",
@@ -44,8 +54,11 @@ const projects = [
   },
   {
     title: "DoorDash Delivery Integration",
+    featured: false,
+    accent: "from-orange-500/15 to-orange-500/0",
+    badgeColor: "bg-orange-500/10 text-orange-700 dark:text-orange-400 border-orange-500/20",
     description:
-      "Led the enterprise-wide integration of DoorDash's mobile delivery platform for Speedway's convenience store network. The project spanned multiple business systems and required coordinating across backoffice inventory management, data warehouse storage, and accounting system payment reconciliation to enable seamless on-demand delivery for customers.",
+      "Led the enterprise-wide integration of DoorDash's mobile delivery platform for Speedway's convenience store network. The project spanned multiple business systems and required coordinating across backoffice inventory management, data warehouse storage, and accounting system payment reconciliation.",
     tech: ["REST APIs", "SQL", "Data Integration", "System Architecture"],
     highlights: [
       "Led the IT organization through the end-to-end integration, coordinating across multiple internal and external teams",
@@ -55,8 +68,11 @@ const projects = [
   },
   {
     title: "IoT Prototypes & Speedy Rewards",
+    featured: false,
+    accent: "from-sky-500/15 to-sky-500/0",
+    badgeColor: "bg-sky-500/10 text-sky-700 dark:text-sky-400 border-sky-500/20",
     description:
-      "A series of innovative IoT and customer-facing solutions developed as part of Speedway's Emerging Technologies team. Projects ranged from energy management and video analytics devices for store operations to the Speedy Rewards loyalty device — a customer-facing self-checkout terminal used across the convenience store chain.",
+      "A series of innovative IoT and customer-facing solutions developed as part of Speedway's Emerging Technologies team. Projects ranged from energy management and video analytics devices for store operations to the Speedy Rewards loyalty device.",
     tech: ["WPF", "C#", ".NET", "IoT", "Visual Studio"],
     highlights: [
       "Prototyped various IoT devices for corporate and store environments spanning energy management, video analytics, and inventory management — one solution was submitted for a patent",
@@ -66,47 +82,89 @@ const projects = [
   },
 ];
 
-export default function ProjectsPage() {
+function ProjectCard({
+  project,
+  index,
+}: {
+  project: (typeof projects)[number];
+  index: number;
+}) {
   return (
-    <div className="mx-auto max-w-3xl space-y-8">
-      <div className="animate-in fade-in slide-in-from-bottom-4 fill-mode-backwards animation-duration-500 space-y-2">
-        <h1 className="text-3xl font-bold tracking-tight">Projects</h1>
-        <p className="text-muted-foreground">
-          Notable projects and contributions
+    <Card
+      className="animate-in fade-in slide-in-from-bottom-4 fill-mode-backwards duration-500 group overflow-hidden transition-shadow hover:shadow-lg hover:shadow-accent/[0.04]"
+      style={{ animationDelay: `${(index + 1) * 100}ms` }}
+    >
+      {/* Gradient accent bar */}
+      <div
+        className={`h-1 bg-gradient-to-r ${project.accent}`}
+      />
+      <CardHeader className="space-y-3">
+        <div className="flex items-start justify-between gap-3">
+          <CardTitle className="font-heading text-lg">
+            {project.title}
+          </CardTitle>
+          {project.featured && (
+            <Badge className={`shrink-0 gap-1 ${project.badgeColor} border`}>
+              <SparklesIcon className="size-3" />
+              Featured
+            </Badge>
+          )}
+        </div>
+        <CardDescription className="text-sm leading-relaxed">
+          {project.description}
+        </CardDescription>
+        <div className="flex flex-wrap gap-1.5 pt-1">
+          {project.tech.map((t) => (
+            <Badge
+              key={t}
+              variant="outline"
+              className="border-border/60 bg-muted/40 text-[0.7rem] font-medium"
+            >
+              {t}
+            </Badge>
+          ))}
+        </div>
+      </CardHeader>
+      <CardContent>
+        <ul className="space-y-2.5 text-sm leading-relaxed text-foreground/75">
+          {project.highlights.map((highlight, i) => (
+            <li key={i} className="flex gap-2.5">
+              <span className="mt-2 h-1 w-1 shrink-0 rounded-full bg-accent/50" />
+              <span>{highlight}</span>
+            </li>
+          ))}
+        </ul>
+      </CardContent>
+    </Card>
+  );
+}
+
+export default function ProjectsPage() {
+  const featured = projects[0];
+  const rest = projects.slice(1);
+
+  return (
+    <div className="mx-auto max-w-4xl space-y-10 pb-8">
+      {/* ── Header ── */}
+      <div className="animate-in fade-in slide-in-from-bottom-6 fill-mode-backwards duration-700 space-y-3">
+        <h1 className="font-heading text-4xl font-black tracking-tight md:text-5xl">
+          Projects
+        </h1>
+        <p className="max-w-lg text-muted-foreground">
+          Notable projects and contributions spanning enterprise platforms,
+          consumer IoT, and emerging technologies.
         </p>
       </div>
-      <Separator />
-      <div className="space-y-6">
-        {projects.map((project, i) => (
-          <Card
-            key={project.title}
-            className="animate-in fade-in slide-in-from-bottom-4 fill-mode-backwards animation-duration-500"
-            style={{ animationDelay: `${(i + 1) * 100}ms` }}
-          >
-            <CardHeader>
-              <CardTitle className="text-lg">{project.title}</CardTitle>
-              <CardDescription className="text-sm leading-relaxed">
-                {project.description}
-              </CardDescription>
-              <div className="flex flex-wrap gap-1.5 pt-2">
-                {project.tech.map((t) => (
-                  <Badge key={t} variant="outline" className="text-xs">
-                    {t}
-                  </Badge>
-                ))}
-              </div>
-            </CardHeader>
-            <CardContent>
-              <ul className="space-y-2 text-sm text-foreground/80">
-                {project.highlights.map((highlight, i) => (
-                  <li key={i} className="flex gap-2">
-                    <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-muted-foreground/50" />
-                    <span>{highlight}</span>
-                  </li>
-                ))}
-              </ul>
-            </CardContent>
-          </Card>
+
+      <Separator className="bg-border/50" />
+
+      {/* ── Featured Project ── */}
+      <ProjectCard project={featured} index={0} />
+
+      {/* ── Other Projects Grid ── */}
+      <div className="grid gap-6 md:grid-cols-2">
+        {rest.map((project, i) => (
+          <ProjectCard key={project.title} project={project} index={i + 1} />
         ))}
       </div>
     </div>

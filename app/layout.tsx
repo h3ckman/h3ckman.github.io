@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Geist } from "next/font/google";
+import { Source_Serif_4, Manrope } from "next/font/google";
 import { cn } from "@/lib/utils";
 import "./globals.css";
 import { AppSidebar } from "@/components/app-sidebar";
@@ -13,7 +13,17 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { BreadcrumbNav } from "@/components/breadcrumb-nav";
 import { ThemeToggle } from "@/components/theme-toggle";
 
-const geist = Geist({ subsets: ["latin"], variable: "--font-sans" });
+const sourceSerif = Source_Serif_4({
+  subsets: ["latin"],
+  variable: "--font-display",
+  display: "swap",
+});
+
+const manrope = Manrope({
+  subsets: ["latin"],
+  variable: "--font-body",
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   title: "Alex Heck",
@@ -39,7 +49,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={cn("font-sans", geist.variable)} suppressHydrationWarning>
+    <html
+      lang="en"
+      className={cn("font-sans", sourceSerif.variable, manrope.variable)}
+      suppressHydrationWarning
+    >
       <head>
         <script
           dangerouslySetInnerHTML={{
@@ -58,7 +72,7 @@ export default function RootLayout({
           <TooltipProvider>
             <AppSidebar navMain={navMain} socialLinks={socialLinks} />
             <SidebarInset>
-              <header className="flex h-16 shrink-0 items-center gap-2 px-4">
+              <header className="flex h-14 shrink-0 items-center gap-2 border-b border-border/40 px-4">
                 <SidebarTrigger className="-ml-1" />
                 <Separator
                   orientation="vertical"
@@ -69,7 +83,7 @@ export default function RootLayout({
                   <ThemeToggle />
                 </div>
               </header>
-              <div className="flex flex-1 flex-col gap-4 p-4 pt-0">
+              <div className="flex flex-1 flex-col gap-4 p-6 pt-6">
                 {children}
               </div>
             </SidebarInset>

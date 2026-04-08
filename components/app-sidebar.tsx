@@ -20,13 +20,9 @@ import {
   SidebarMenu,
   SidebarMenuButton,
   SidebarMenuItem,
+  SidebarSeparator,
 } from "@/components/ui/sidebar";
-import {
-  Avatar,
-  AvatarBadge,
-  AvatarFallback,
-  AvatarImage,
-} from "@/components/ui/avatar";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import {
   Tooltip,
@@ -82,38 +78,65 @@ type AppSidebarProps = React.ComponentProps<typeof Sidebar> & {
   socialLinks: SocialLink[];
 };
 
-export function AppSidebar({ navMain, socialLinks, ...props }: AppSidebarProps) {
+export function AppSidebar({
+  navMain,
+  socialLinks,
+  ...props
+}: AppSidebarProps) {
   const pathname = usePathname();
 
   return (
     <Sidebar variant="floating" {...props}>
-      <SidebarHeader className="items-center gap-3 pt-8">
-        <Avatar className="size-40">
-          <AvatarImage src="/profile.jpg" alt="Alex Heck" />
-          <AvatarFallback className="text-3xl">AH</AvatarFallback>
-          <AvatarBadge className="!size-8 !ring-4 bg-green-600 dark:bg-green-800" />
-        </Avatar>
-        <div className="flex flex-col items-center gap-0.5 leading-none">
-          <span className="text-3xl font-bold">Alex Heck</span>
-          <span className="text-sm text-muted-foreground">
-            Software Engineering Manager
+      <SidebarHeader className="items-center gap-4 pt-10 pb-2">
+        <div className="relative">
+          <Avatar className="relative size-34 ring-2 ring-sidebar-primary/30">
+            <AvatarImage src="/profile.jpg" alt="Alex Heck" />
+            <AvatarFallback className="bg-sidebar-accent text-2xl font-heading font-bold text-sidebar-primary">
+              AH
+            </AvatarFallback>
+          </Avatar>
+        </div>
+        <div className="flex flex-col items-center gap-1 leading-none">
+          <span className="font-heading text-3xl font-bold tracking-tight text-sidebar-foreground">
+            Alex Heck
+          </span>
+          <span className="text-xs font-medium uppercase tracking-[0.15em] text-sidebar-primary">
+            Engineering Manager
           </span>
         </div>
       </SidebarHeader>
+
+      <SidebarSeparator className="mx-0 my-4 bg-sidebar-border/60" />
+
       <SidebarContent>
         <SidebarGroup>
-          <SidebarMenu className="gap-1">
+          <SidebarMenu className="gap-0.5 px-2">
             {navMain.map((item) => {
               const Icon = icons[item.icon];
-              const isActive = item.url === "/" ? pathname === "/" : pathname.startsWith(item.url);
+              const isActive =
+                item.url === "/"
+                  ? pathname === "/"
+                  : pathname.startsWith(item.url);
               return (
                 <SidebarMenuItem key={item.title}>
                   <SidebarMenuButton
                     isActive={isActive}
                     render={<a href={item.url} />}
+                    className={
+                      isActive
+                        ? "bg-sidebar-primary/10 text-sidebar-primary font-semibold"
+                        : ""
+                    }
                   >
-                    {Icon && <Icon className="size-4" />}
+                    {Icon && (
+                      <Icon
+                        className={`size-4 ${isActive ? "text-sidebar-primary" : ""}`}
+                      />
+                    )}
                     <span>{item.title}</span>
+                    {isActive && (
+                      <span className="ml-auto h-1.5 w-1.5 rounded-full bg-sidebar-primary" />
+                    )}
                   </SidebarMenuButton>
                 </SidebarMenuItem>
               );
@@ -121,7 +144,10 @@ export function AppSidebar({ navMain, socialLinks, ...props }: AppSidebarProps) 
           </SidebarMenu>
         </SidebarGroup>
       </SidebarContent>
-      <SidebarFooter className="flex-row items-center justify-center gap-1 pb-4">
+
+      <SidebarSeparator className="mx-0 bg-sidebar-border/60" />
+
+      <SidebarFooter className="flex-row items-center justify-center gap-1 py-4">
         {socialLinks.map((link) => {
           const Icon = socialIcons[link.icon];
           return (
@@ -131,6 +157,8 @@ export function AppSidebar({ navMain, socialLinks, ...props }: AppSidebarProps) 
                   <Button
                     variant="ghost"
                     size="icon"
+                    nativeButton={false}
+                    className="text-sidebar-foreground/60 hover:text-sidebar-primary hover:bg-sidebar-accent"
                     render={
                       <a
                         href={link.url}
