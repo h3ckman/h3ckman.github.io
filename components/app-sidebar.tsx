@@ -61,7 +61,7 @@ export function AppSidebar({
     <Sidebar variant="floating" {...props}>
       <SidebarHeader className="items-center gap-4 pt-10 pb-2">
         <div className="relative">
-          <Avatar className="relative size-34 ring-2 ring-sidebar-primary/30">
+          <Avatar className="relative size-45 ring-2 ring-sidebar-primary/30">
             <AvatarImage src="/profile.jpg" alt="Alex Heck" />
             <AvatarFallback className="bg-sidebar-accent text-2xl font-heading font-bold text-sidebar-primary">
               AH
